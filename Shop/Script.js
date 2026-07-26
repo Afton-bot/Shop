@@ -1,8 +1,3 @@
-// ADD PRODUCT
-<script type="module" src="firebase.js"></script>
-<script type="module" src="script.js"></script>
-
-
 import { db } from "./firebase.js";
 import {
   collection,
@@ -10,7 +5,10 @@ import {
   onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// ADD PRODUCT
+// CART
+let cart = [];
+
+// ADD PRODUCT (ADMIN)
 window.addProduct = async function () {
   await addDoc(collection(db, "products"), {
     name: name.value,
@@ -18,31 +16,32 @@ window.addProduct = async function () {
     image: image.value,
     category: category.value
   });
+  alert("Added!");
 };
 
-// LOAD PRODUCTS
+// LOAD PRODUCTS (SHOP)
 function loadProducts() {
   onSnapshot(collection(db, "products"), snapshot => {
     let html = "";
     snapshot.forEach(doc => {
       let p = doc.data();
       html += `
-        <div>
-          <img src="${p.image}" width="100">
+        <div class="card">
+          <img src="${p.image}" />
           <h3>${p.name}</h3>
-          <p>$${p.price}</p>
+          <p class="price">$${p.price}</p>
           <button onclick="addToCart('${doc.id}')">Add</button>
         </div>
       `;
     });
-    products.innerHTML = html;
+    document.getElementById("products").innerHTML = html;
   });
 }
 
-let cart = [];
-
+// ADD TO CART
 window.addToCart = function(id) {
   cart.push(id);
+  document.getElementById("cartCount").innerText = cart.length;
 };
 
 // PLACE ORDER
@@ -55,23 +54,24 @@ window.placeOrder = async function () {
     time: new Date()
   });
   alert("Order sent!");
+  cart = [];
 };
 
-// LOAD ORDERS
+// LOAD ORDERS (DASHBOARD)
 function loadOrders() {
   onSnapshot(collection(db, "orders"), snapshot => {
     let html = "";
     snapshot.forEach(doc => {
       let o = doc.data();
       html += `
-        <div>
-          <p>${o.phone}</p>
-          <p>${o.address}</p>
-          <p>${o.branch}</p>
+        <div class="order-card">
+          <p><b>📞</b> ${o.phone}</p>
+          <p><b>📍</b> ${o.address}</p>
+          <p><b>🏬</b> ${o.branch}</p>
         </div>
       `;
     });
-    orders.innerHTML = html;
+    document.getElementById("orders").innerHTML = html;
   });
 }
 

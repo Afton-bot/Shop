@@ -1,28 +1,24 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: sans-serif;
 }
 
-/* BODY */
 body {
   background: #0f172a;
-  color: #e2e8f0;
+  color: white;
   padding: 20px;
 }
 
-/* HEADER */
 h2 {
-  margin-bottom: 20px;
   color: #22c55e;
+  margin-bottom: 20px;
 }
 
-/* INPUTS */
 input, select {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   margin: 8px 0;
   border-radius: 10px;
   border: none;
@@ -30,81 +26,61 @@ input, select {
   color: white;
 }
 
-/* BUTTON */
 button {
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
+  padding: 10px;
   background: #22c55e;
-  color: black;
-  font-weight: bold;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.2s;
 }
 
-button:hover {
-  background: #16a34a;
-}
-
-/* GRID */
+/* PRODUCTS */
 #products {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  gap: 15px;
 }
 
-/* CARD */
 .card {
   background: #1e293b;
-  border-radius: 15px;
-  padding: 15px;
+  padding: 10px;
+  border-radius: 10px;
   text-align: center;
-  transition: 0.2s;
 }
 
-.card:hover {
-  transform: scale(1.03);
-}
-
-/* IMAGE */
 .card img {
   width: 100%;
-  height: 140px;
+  height: 120px;
   object-fit: cover;
-  border-radius: 10px;
 }
 
-/* PRICE */
 .price {
   color: #22c55e;
-  font-weight: bold;
 }
 
-/* CART BOX */
+/* CART */
 .cart-box {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background: #22c55e;
   color: black;
-  padding: 15px;
+  padding: 10px 15px;
   border-radius: 50px;
-  font-weight: bold;
 }
 
-/* ORDER BOX */
+/* ORDER */
 .order-box {
-  margin-top: 30px;
+  margin-top: 20px;
   background: #1e293b;
-  padding: 20px;
-  border-radius: 15px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 /* DASHBOARD */
 .order-card {
   background: #1e293b;
-  padding: 15px;
-  border-radius: 12px;
+  padding: 10px;
   margin: 10px 0;
+  border-radius: 10px;
 }

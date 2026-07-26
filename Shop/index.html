@@ -1,14 +1,33 @@
-<h2>Shop</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>🛒 Shop</h2>
 
 <select id="branch">
-  <option>Branch A</option>
-  <option>Branch B</option>
+  <option>Main</option>
+  <option>VIP</option>
 </select>
 
 <div id="products"></div>
 
-<h3>Order Info</h3>
-<input id="phone" placeholder="Phone">
-<input id="address" placeholder="Address">
+<div class="cart-box">
+  Cart: <span id="cartCount">0</span>
+</div>
 
-<button onclick="placeOrder()">Place Order</button>
+<div class="order-box">
+  <h3>Order</h3>
+  <input id="phone" placeholder="Phone">
+  <input id="address" placeholder="Address">
+  <button onclick="placeOrder()">Place Order</button>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
